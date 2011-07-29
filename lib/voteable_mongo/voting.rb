@@ -64,6 +64,7 @@ module Mongo
           return false if options[:votee].blank?
           
           validate_and_normalize_vote_options(options)
+
           return unless VOTEABLE[self.name][self.name]
           
           setup_voteable(options)

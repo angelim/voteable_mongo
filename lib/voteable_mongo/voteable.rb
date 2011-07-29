@@ -111,6 +111,15 @@ module Mongo
         end
       end
       
+      # Allow voting in subclasses
+      # 
+      # Copies VOTEABLE params to inherited classes
+      def inherited(subclass)
+        VOTEABLE[subclass.name] = VOTEABLE[name]
+        VOTEABLE[subclass.name][subclass.name] = VOTEABLE[name][name]
+        super
+      end
+      
       # Defines the oting_field in the included class
       # with the given name.
       # 
