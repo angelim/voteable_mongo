@@ -13,8 +13,8 @@ Gem::Specification.new do |s|
   s.description = %q{Add up / down voting ability to Mongoid and MongoMapper documents. Optimized for speed by using only ONE request to MongoDB to validate, update, and retrieve updated data.}
 
   s.add_development_dependency 'rspec', '~> 2.6.0'
-  s.add_dependency 'mongoid'
-  s.add_dependency 'mongo_mapper', '~> 0.9.0'
+  s.add_development_dependency 'mongoid'
+  s.add_development_dependency 'mongo_mapper', '~> 0.9.0'
 
   s.rubyforge_project = 'voteable_mongo'
 
