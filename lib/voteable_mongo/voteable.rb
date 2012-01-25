@@ -75,6 +75,7 @@ module Mongo
         voter_id = Helpers.get_mongo_id(voter)
         where("#{voting_field}.down" => voter_id)
       }
+      scope :shit, where(:contents => "ale")
     end
 
     # How many points should be assigned for each up or down vote and other options
@@ -313,6 +314,11 @@ module Mongo
       # Get voters
       def voters(klass, voting_field = "votes")
         klass.where(:_id => { '$in' => voter_ids(voting_field) })
+      end
+      
+      def init_stats(voting_field = "votes")
+        self.write_attribute(voting_field, Mongo::Voteable::DEFAULT_VOTES )
+        self.save
       end
     end
   end
